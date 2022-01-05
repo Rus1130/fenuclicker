@@ -107,7 +107,7 @@
         <br>
         Stiudents Bought: <span id="stiudents">0</span>
         <br>
-        <button onclick="buyStiudent(); playStiudent()">Buy Stiudent</button>
+        <button onclick="buyStiudent()">Buy Stiudent</button>
         <br>
         <br>
         Aula Cost: <span id="aulaCost">100</span>
@@ -115,7 +115,7 @@
         <br>
         Aulas Built: <span id="aulas">0</span>
         <br>
-        <button onclick="buildAula(); playAula()">Build Aula</button>
+        <button onclick="buildAula()">Build Aula</button>
         <br>
         <br>
         Eraser Cost: <span id="eraserCost">480</span>
@@ -123,7 +123,7 @@
         <br>
         Erasers Thrown: <span id="erasers">0</span>
         <br>
-        <button onclick="throwEraser(); playEraser()">Throw Eraser</button>
+        <button onclick="throwEraser()">Throw Eraser</button>
         <br>
         <br>
         Camera Cost: <span id="cameraCost">800</span>
@@ -131,7 +131,7 @@
         <br>
         Cameras Unmuted: <span id="cameras">0</span>
         <br>
-        <button onclick="unmuteCamera(); playCamera()">Unmute Camera</button>
+        <button onclick="unmuteCamera()">Unmute Camera</button>
         <br>
         <br>
         Pasta Cost: <span id="pastaCost">2800</span>
@@ -139,7 +139,7 @@
         <br>
         Pastas Slurped: <span id="pastas">0</span>
         <br>
-        <button onclick="slurpPasta(); playPasta()">Slurp Pasta</button>
+        <button onclick="slurpPasta()">Slurp Pasta</button>
         <br>
         <br>
         <hr>
@@ -810,6 +810,7 @@ function buyStiudent(){
         document.getElementById('stiudents').innerHTML = stiudents;
         document.getElementById('fenubucks').innerHTML = fenubucks;
         console.log("stiudent bought");
+        playStiudent()
     } else {
         notEnoughFenu()
     };
@@ -836,6 +837,7 @@ function buildAula(){
         document.getElementById('aulas').innerHTML = aulas;
         document.getElementById('fenubucks').innerHTML = fenubucks;
         console.log("aula built");
+        playAula()
     } else {
         notEnoughFenu()
     };
@@ -863,6 +865,7 @@ function throwEraser(){
         document.getElementById('erasers').innerHTML = erasers;
         document.getElementById('fenubucks').innerHTML = fenubucks;
         console.log("eraser thrown");
+        playEraser()
     } else {
         notEnoughFenu()
     };
@@ -890,6 +893,7 @@ function unmuteCamera(){
         document.getElementById('cameras').innerHTML = cameras;
         document.getElementById('fenubucks').innerHTML = fenubucks;
         console.log("camera unmuted");
+        playCamera()
     } else {
         notEnoughFenu()
     };
