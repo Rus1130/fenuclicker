@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<title>
+    Fenu Clicker 2 v1.5.1
+</title>
+<head>
+    <style>
+        .settings {
+        position: absolute;
+        right: 40px;
+        width: 370px;
+        border: 3px solid rgb(42, 173, 235);
+        padding: 10px;
+        text-align: center;
+        top: 10px;
+        }
+        .achievements{
+        position: absolute;
+        right: 40px;
+        width: 370px;
+        border: 3px solid red;
+        padding: 10px;
+        text-align: center;
+        top: 200px;
+        }
+        .hiddenAchievements{
+            display: none
+        }
+    </style>
+
+
+    <body>
+        <div class="settings">
+            Settings:
+            <br>
+            <br>
+            <input type="button" id="settingsNoFenuPopup" value="Fenubucks-related Popups" onclick="settingsNoFenuPopup()">
+            <text id="settingsNoFenuPopupValue">true</text>
+            <br>
+            <br>
+            <input type="button" id="settingsSaveLoadWipePopup" value="Save/Load/Wipe Popups" onclick="settingsSaveLoadWipePopup()">
+            <text id="settingsSaveLoadWipePopupValue">true</text>
+            <br>
+            <br>
+            <input type="button" value="Show Compatible Browsers" onclick="compatibleBroswers()">
+        </div>
+        <div class="achievements">
+            Achievements:
+            <br>
+            <!--fenubucks-->
+            <span id="achievementFenubucks1" div class="hiddenAchievements">Fenu Noob (Gain 100 Fenubucks)</span>
+            <br div class="hiddenAchievements" id="br1">
+            <span id="achievementFenubucks2" div class="hiddenAchievements">Fenu Normie (Gain 1500 Fenubucks)</span>
+            <br div class="hiddenAchievements" id="br2">
+            <span id="achievementFenubucks3" div class="hiddenAchievements">Fenu Stan (Gain 10000 Fenubucks)</span>
+            <br div class="hiddenAchievements" id="br3">
+            <span id="achievementFenubucks4" div class="hiddenAchievements">Fenu Fan (Gain 50000 Fenubucks)</span>
+            <br div class="hiddenAchievements" id="br4">
+            <span id="achievementFenubucks5" div class="hiddenAchievements">Fenu Enjoyer (Gain 100000 Fenubucks)</span>
+            <br div class="hiddenAchievements" id="br5">
+            <span id="achievementFenubucks6"div class="hiddenAchievements">Fenu Embracer (Gain 300000 Fenubucks)</span>
+            <br div class="hiddenAchievements" id="br6">
+            <!--golden fenubucks-->
+            <span id="achievementGoldenFenubucks1" div class="hiddenAchievements">Begin Mining (Unlock Golden Fenubucks)</span>
+            <br div class="hiddenAchievements" id="br7">
+            <span id="achievementGoldenFenubucks2" div class="hiddenAchievements">Mining Noob (Gain 100 Golden Fenubucks)</span>
+            <br div class="hiddenAchievements" id="br8">
+            <span id="achievementGoldenFenubucks3" div class="hiddenAchievements">Mining Normie (Gain 1500 Golden Fenubucks)</span>
+            <br div class="hiddenAchievements" id="br9">
+            <span id="achievementGoldenFenubucks4" div class="hiddenAchievements">Mining Stan (Gain 10000 Golden Fenubucks)</span>
+            <br div class="hiddenAchievements" id="br10">
+            <span id="achievementGoldenFenubucks5" div class="hiddenAchievements">Mining Fan (Gain 50000 Golden Fenubucks)</span>
+            <br div class="hiddenAchievements" id="br11">
+            <span id="achievementGoldenFenubucks6" div class="hiddenAchievements">Mining Enjoyer (Gain 100000 Golden Fenubucks)</span>
+            <br div class="hiddenAchievements" id="br12">
+            <span id="achievementGoldenFenubucks7"div class="hiddenAchievements">Mining Embracer (Gain 300000 Golden Fenubucks)</span>
+            <br div class="hiddenAchievements" id="br13">
+            <!--exchange-->
+
+            <!--hidden achievements-->
+            <span id="achievementHidden1" div class="hiddenAchievements">How did you unhide that?</span>
+        </div>
+        Fenu Clicker 2 v1.5.1
+        <br>
+        <button onclick="save()">Save</button>
+        <button onclick="load()">Load</button>
+        <button onclick="wipe()">Wipe Save</button>
+        <h3>F$: <span id="fenubucks">0</span></h3>
+        <h3>GF$: <span id="gfenubucks">0</span></h3>
+        <button onclick="photocopyFenubucks(photocopier)"><b>Photocopy Fenubucks</b></button><button onclick="betterPhotocopier()" hidden=true id="betterPhotocopierId">Get better fenu photo</button>
+        <br>
+        <br>
+        Stiudent Cost: <span id="stiudentCost">10</span>
+        F$
+        <br>
+        Stiudents Bought: <span id="stiudents">0</span>
+        <br>
+        <button onclick="buyStiudent()">Buy Stiudent</button>
+        <br>
+        <br>
+        Aula Cost: <span id="aulaCost">100</span>
+        F$
+        <br>
+        Aulas Built: <span id="aulas">0</span>
+        <br>
+        <button onclick="buildAula()">Build Aula</button>
+        <br>
+        <br>
+        Eraser Cost: <span id="eraserCost">480</span>
+        F$
+        <br>
+        Erasers Thrown: <span id="erasers">0</span>
+        <br>
+        <button onclick="throwEraser()">Throw Eraser</button>
+        <br>
+        <br>
+        Camera Cost: <span id="cameraCost">800</span>
+        F$
+        <br>
+        Cameras Unmuted: <span id="cameras">0</span>
+        <br>
+        <button onclick="unmuteCamera()">Unmute Camera</button>
+        <br>
+        <br>
+        Pasta Cost: <span id="pastaCost">2800</span>
+        F$
+        <br>
+        Pastas Slurped: <span id="pastas">0</span>
+        <br>
+        <button onclick="slurpPasta()">Slurp Pasta</button>
+        <br>
+        <br>
+        <hr>
+        <input type="button" button id='unlockGoldenFenubucks' value="Unlock Golden Fenubucks (50000 F$)" onclick="unlockGoldenFenubucks()"></button>
+        <br>
+        <br>
+        Cibo Mine Cost: <span id="ciboCost">100000</span>
+        F$
+        <br>
+        Cibo Mines Bought: <span id="cibos">0</span>
+        <br>
+        <button onclick="mineCibo()">Mine Cibo</button>
+        <br>
+        <br>
+        Piccolo Libro Cost: <span id="libroCost">100</span>
+        GF$
+        <br>
+        Piccolo Libros Read: <span id="libros">0</span>
+        <br>
+        <button onclick="readLibro()">Read Piccolo Libro</button>
+        <br>
+        <br>
+        Galbani Cheese Cost: <span id="galbaniCost">300</span>
+        GF$
+        <br>
+        Galbani Cheeses Eaten: <span id="galbanis">0</span>
+        <br>
+        <button onclick="eatGalbani()">Eat Galbani Cheese</button>
+    </body>
+<script>
+
+//settings =================================================================================
+
+var settingsNoFenuPopupValue = true;
+var settingsSaveLoadWipePopupValue = true;
+
+function settingsNoFenuPopup(){
+    settingsNoFenuPopupValue = !settingsNoFenuPopupValue;
+    document.getElementById("settingsNoFenuPopupValue").innerHTML = settingsNoFenuPopupValue;
+    console.log("settingsNoFenuPopupValue=" + settingsNoFenuPopupValue)
+}
+
+function settingsSaveLoadWipePopup(){
+    settingsSaveLoadWipePopupValue = !settingsSaveLoadWipePopupValue;
+    document.getElementById("settingsSaveLoadWipePopupValue").innerHTML = settingsSaveLoadWipePopupValue;
+    console.log("settingsSaveLoadWipePopupValue=" + settingsSaveLoadWipePopupValue)
+}
+
+//saving ===================================================================================
+
+//load =======================
+
+function save() {
+
+    if(settingsSaveLoadWipePopupValue == true){
+        window.alert("Game saved!")
+        console.log("save popup")
+        console.log("game saved")
+    } else {
+        console.log("game saved")
+    }
+
+    //fenubucks ==========
+    
+    localStorage.setItem('fenubucks', JSON.stringify(fenubucks));
+
+    //golden fenubucks ===
+
+    localStorage.setItem('gfenubucks', JSON.stringify(gfenubucks));
+
+    //stiudents ==========
+
+    localStorage.setItem('stiudentCost', JSON.stringify(stiudentCost));
+    localStorage.setItem('stiudents', JSON.stringify(stiudents));
+    
+    //aulas ==============
+
+    localStorage.setItem('aulaCost', JSON.stringify(aulaCost));
+    localStorage.setItem('aulas', JSON.stringify(aulas));
+
+    //erasers ============
+
+    localStorage.setItem('eraserCost', JSON.stringify(eraserCost));
+    localStorage.setItem('erasers', JSON.stringify(erasers));
+
+    //cameras ============
+
+    localStorage.setItem('cameraCost', JSON.stringify(cameraCost));
+    localStorage.setItem('cameras', JSON.stringify(cameras));
+
+    //pastas =============
+
+    localStorage.setItem('pastaCost', JSON.stringify(pastaCost));
+    localStorage.setItem('pastas', JSON.stringify(pastas));
+
+    //cibos ==============
+
+    localStorage.setItem('ciboCost', JSON.stringify(ciboCost));
+    localStorage.setItem('cibos', JSON.stringify(cibos));
+
+    //libros =============
+
+    localStorage.setItem('libroCost', JSON.stringify(libroCost));
+    localStorage.setItem('libros', JSON.stringify(libros));
+
+    //galbanis ===========
+
+    localStorage.setItem('galbaniCost', JSON.stringify(galbaniCost));
+    localStorage.setItem('galbanis', JSON.stringify(galbanis));
+
+    //achievements =======
+
+    //fenubucks achievements
+
+    localStorage.setItem('achievementFenubucks1Status', JSON.stringify(achievementFenubucks1Status));
+    localStorage.setItem('achievementFenubucks2Status', JSON.stringify(achievementFenubucks2Status));
+    localStorage.setItem('achievementFenubucks3Status', JSON.stringify(achievementFenubucks3Status));
+    localStorage.setItem('achievementFenubucks4Status', JSON.stringify(achievementFenubucks4Status));
+    localStorage.setItem('achievementFenubucks5Status', JSON.stringify(achievementFenubucks5Status));
+    localStorage.setItem('achievementFenubucks6Status', JSON.stringify(achievementFenubucks6Status));
+
+    //golden fenubucks achievements
+
+    localStorage.setItem('achievementGoldenFenubucks1Status', JSON.stringify(achievementGoldenFenubucks1Status));
+    localStorage.setItem('achievementGoldenFenubucks2Status', JSON.stringify(achievementGoldenFenubucks2Status));
+    localStorage.setItem('achievementGoldenFenubucks3Status', JSON.stringify(achievementGoldenFenubucks3Status));
+    localStorage.setItem('achievementGoldenFenubucks4Status', JSON.stringify(achievementGoldenFenubucks4Status));
+    localStorage.setItem('achievementGoldenFenubucks5Status', JSON.stringify(achievementGoldenFenubucks5Status));
+    localStorage.setItem('achievementGoldenFenubucks6Status', JSON.stringify(achievementGoldenFenubucks6Status));
+    localStorage.setItem('achievementGoldenFenubucks7Status', JSON.stringify(achievementGoldenFenubucks7Status));
+
+    //exchange =========
+
+    //hidden achievements ===========
+
+    localStorage.setItem('achievementHidden1Status', JSON.stringify(achievementHidden1Status));
+    
+    //option saving ======
+
+    localStorage.setItem('settingsNoFenuPopupValue', JSON.stringify(settingsNoFenuPopupValue));
+    localStorage.setItem('settingsSaveLoadWipePopupValue', JSON.stringify(settingsSaveLoadWipePopupValue));
+}
+
+//load =======================
+function load() {
+
+    if(settingsSaveLoadWipePopupValue == true){
+        window.alert("Save loaded!")
+        console.log("load popup")
+        console.log("save loaded")
+    } else {
+        console.log("save loaded")
+    } 
+
+    //fenubucks ==========
+
+    fenubucks = JSON.parse(localStorage.getItem('fenubucks'));
+
+    document.getElementById('fenubucks').innerHTML = fenubucks;
+
+    //golden fenubucks ===
+
+    gfenubucks = JSON.parse(localStorage.getItem('gfenubucks'));
+
+    document.getElementById('gfenubucks').innerHTML = gfenubucks;
+
+    //stiudents ==========
+
+    stiudentCost = JSON.parse(window.localStorage.getItem('stiudentCost'));
+    stiudents = JSON.parse(window.localStorage.getItem('stiudents'));
+
+    document.getElementById('stiudentCost').innerHTML = stiudentCost + 0;
+    document.getElementById('stiudents').innerHTML = stiudents;
+
+    //aulas ==============
+
+    aulaCost = JSON.parse(window.localStorage.getItem('aulaCost'));
+    aulas = JSON.parse(window.localStorage.getItem('aulas'));
+
+    document.getElementById('aulaCost').innerHTML = aulaCost + 0;
+    document.getElementById('aulas').innerHTML = aulas;
+
+    //erasers ============
+    
+    eraserCost = JSON.parse(window.localStorage.getItem('eraserCost'));
+    erasers = JSON.parse(window.localStorage.getItem('erasers'));
+
+    document.getElementById('eraserCost').innerHTML = eraserCost + 0;
+    document.getElementById('erasers').innerHTML = erasers;
+
+    //cameras ====================================================================
+
+    cameraCost = JSON.parse(window.localStorage.getItem('cameraCost'));
+    cameras = JSON.parse(window.localStorage.getItem('cameras'));
+
+    document.getElementById('cameraCost').innerHTML = cameraCost + 0;
+    document.getElementById('cameras').innerHTML = cameras;
+ 
+    //pastas ======================================================================
+
+    pastaCost = JSON.parse(window.localStorage.getItem('pastaCost'));
+    pastas = JSON.parse(window.localStorage.getItem('pastas'));
+
+    document.getElementById('pastaCost').innerHTML = pastaCost + 0;
+    document.getElementById('pastas').innerHTML = pastas;
+    
+    //cibos =======================================================================
+
+    ciboCost = JSON.parse(window.localStorage.getItem('ciboCost'));
+    cibos = JSON.parse(window.localStorage.getItem('cibos'));
+
+    document.getElementById('ciboCost').innerHTML = ciboCost + 0;
+    document.getElementById('cibos').innerHTML = cibos;
+
+    //libros ======================================================================
+
+    libroCost = JSON.parse(window.localStorage.getItem('libroCost'));
+    libros = JSON.parse(window.localStorage.getItem('libros'));
+
+    document.getElementById('libroCost').innerHTML = libroCost + 0;
+    document.getElementById('libros').innerHTML = libros;
+
+    //galbanis ====================================================================
+
+    galbaniCost = JSON.parse(window.localStorage.getItem('galbaniCost'));
+    galbanis = JSON.parse(window.localStorage.getItem('galbanis'));
+
+    document.getElementById('galbaniCost').innerHTML = galbaniCost + 0;
+    document.getElementById('galbanis').innerHTML = galbanis;
+
+    //achievements ================================================================
+
+    //fenubucks achievements ======================================================
+
+    achievementFenubucks1Status = JSON.parse(window.localStorage.getItem('achievementFenubucks1Status'));
+    document.getElementById('achievementFenubucks1Status').innerHTML = achievementFenubucks1Status;
+
+    achievementFenubucks2Status = JSON.parse(window.localStorage.getItem('achievementFenubucks2Status'));
+    document.getElementById('achievementFenubucks2Status').innerHTML = achievementFenubucks2Status;
+
+    achievementFenubucks3Status = JSON.parse(window.localStorage.getItem('achievementFenubucks3Status'));
+    document.getElementById('achievementFenubucks3Status').innerHTML = achievementFenubucks3Status;
+
+    achievementFenubucks4Status = JSON.parse(window.localStorage.getItem('achievementFenubucks4Status'));
+    document.getElementById('achievementFenubucks4Status').innerHTML = achievementFenubucks4Status;
+
+    achievementFenubucks5Status = JSON.parse(window.localStorage.getItem('achievementFenubucks5Status'));
+    document.getElementById('achievementFenubucks5Status').innerHTML = achievementFenubucks5Status;
+
+    achievementFenubucks6Status = JSON.parse(window.localStorage.getItem('achievementFenubucks6Status'));
+    document.getElementById('achievementFenubucks6Status').innerHTML = achievementFenubucks6Status;
+
+    //golden fenubucks achievements ===============================================
+
+    achievementGoldenFenubucks1Status = JSON.parse(window.localStorage.getItem('achievementGoldenFenubucks1Status'));
+    document.getElementById('achievementGoldenFenubucks1Status').innerHTML = achievementGoldenFenubucks1Status;
+
+    achievementGoldenFenubucks2Status = JSON.parse(window.localStorage.getItem('achievementGoldenFenubucks2Status'));
+    document.getElementById('achievementGoldenFenubucks2Status').innerHTML = achievementGoldenFenubucks2Status;
+
+    achievementGoldenFenubucks3Status = JSON.parse(window.localStorage.getItem('achievementGoldenFenubucks3Status'));
+    document.getElementById('achievementGoldenFenubucks3Status').innerHTML = achievementGoldenFenubucks3Status;
+
+    achievementGoldenFenubucks4Status = JSON.parse(window.localStorage.getItem('achievementGoldenFenubucks4Status'));
+    document.getElementById('achievementGoldenFenubucks4Status').innerHTML = achievementGoldenFenubucks4Status;
+
+    achievementGoldenFenubucksStatus = JSON.parse(window.localStorage.getItem('achievementGoldenFenubucks5Status'));
+    document.getElementById('achievementGoldenFenubucks5Status').innerHTML = achievementGoldenFenubucks5Status;
+
+    achievementGoldenFenubucks6Status = JSON.parse(window.localStorage.getItem('achievementGoldenFenubucks6Status'));
+    document.getElementById('achievementGoldenFenubucks6Status').innerHTML = achievemenGoldenFenubucks6Status;
+
+    achievementGoldenFenubucks7Status = JSON.parse(window.localStorage.getItem('achievementGoldenFenubucks7Status'));
+    document.getElementById('achievementGoldenFenubucks7Status').innerHTML = achievementGoldenFenubucks7Status;
+
+    //exchange achievements =======================================================
+
+    //hidden achievements =========================================================
+
+    achievementHidden1Status = JSON.parse(window.localStorage.getItem('achievementHidden1Status'));
+    document.getElementById('achievementHidden1Status').innerHTML = achievementHidden1Status;
+
+    //option loading ==============================================================
+
+    settingsNoFenuPopupValue = JSON.parse(window.localStorage.getItem('settingsNoFenuPopupValue'));
+    document.getElementById('settingsNoFenuPopupValue').innerHTML = settingsNoFenuPopupValue;
+
+    settingsSaveLoadWipePopupValue = JSON.parse(window.localStorage.getItem('settingsSaveLoadWipePopupValue'));
+    document.getElementById('settingsSaveLoadWipePopupValue').innerHTML = settingsSaveLoadWipePopupValue;
+}
+
+//clear =======================================================================
+
+function wipe(){
+    if(settingsSaveLoadWipePopupValue == true){
+        if(confirm('Are you sure you want to wipe your save data? This cannot be undone.')){
+            console.log("save wiped")
+            console.log("wipe() popup")
+            localStorage.clear()
+        } else {
+            console.log("save kept")
+        } 
+    } else {
+        localStorage.clear()
+        console.log("wipe() executed")
+        }
+    }
+
+//important ================================================================================
+
+console.log("thanks to Cass for helping me with bugs")
+console.log("thanks to Jax for being a retard!! and giving me feature ideas")
+
+let fenubucks = 0;
+var gfenubucks = 0;
+var photocopier = 1;
+var photocopyCost = 100 * (photocopier / 2)
+
+function notEnoughFenu(){
+    if(settingsNoFenuPopupValue == true){
+        alert("Not enough Fenubucks!")
+        console.log("notEnoughFenu() popup")
+        console.log("insufficient fenubucks")
+    } else {
+        console.log("insufficient fenubucks")
+    }
+}
+
+function notEnoughFenuGolden(){
+    if(settingsNoFenuPopupValue == true){
+        window.alert("Not enough Golden Fenubucks!")
+        console.log("notEnoughFenuGolden() popup")
+        console.log("insufficient golden fenubucks")
+    } else {
+        console.log("insufficient golden fenubucks")
+    }   
+}
+
+function photocopyFenubucks(number){
+    fenubucks = fenubucks + number;
+    document.getElementById("fenubucks").innerHTML = fenubucks;
+};
+
+function photocopygFenubucks(number){
+    gfenubucks = gfenubucks + number;
+    document.getElementById("gfenubucks").innerHTML = gfenubucks;
+};
+
+function unlockGolden(){
+    if(settingsNoFenuPopupValue == true){
+        window.alert("Please unlock Golden Fenubucks production!")
+        console.log("unlockGolden() popup")
+        console.log("golden fenubucks not unlocked")
+    } else {
+        console.log("golden fenubucks not unlocked")
+    }
+}
+
+function betterPhotocopier(){
+    photocopier = photocopier + fenubucks
+}
+
+function compatibleBroswers(){
+    window.alert("Compatible Browsers:\nChrome\nOpera GX (probably)\nEdge")
+}
+
+window.setInterval(function cyclicalCheck(){
+    checkAchievements()
+    if(gfenubucks > 0){
+        document.getElementById("unlockGoldenFenubucks").disabled = true
+    }
+    console.log("update cycle")
+}, 1)
+
+//achievement manager ======================================================================
+
+//variable bank ===============================================================
+
+var achievementFenubucks1Status = false;
+var achievementFenubucks2Status = false;
+var achievementFenubucks3Status = false;
+var achievementFenubucks4Status = false;
+var achievementFenubucks5Status = false;
+var achievementFenubucks6Status = false;
+
+var achievementGoldenFenubucks1Status = false;
+var achievementGoldenFenubucks2Status = false;
+var achievementGoldenFenubucks3Status = false;
+var achievementGoldenFenubucks4Status = false;
+var achievementGoldenFenubucks5Status = false;
+var achievementGoldenFenubucks6Status = false;
+var achievementGoldenFenubucks7Status = false;
+
+var achievementHidden1Status = false;
+
+function checkAchievements(){
+
+    achievementFenubucks1()
+    achievementFenubucks2()
+    achievementFenubucks3()
+    achievementFenubucks4()
+    achievementFenubucks5()
+    achievementFenubucks6()
+
+    achievementGoldenFenubucks1()
+    achievementGoldenFenubucks2()
+    achievementGoldenFenubucks3()
+    achievementGoldenFenubucks4()
+    achievementGoldenFenubucks5()
+    achievementGoldenFenubucks6()
+    achievementGoldenFenubucks7()
+
+    achievementHidden1()
+}
+
+//fenubucks ===================================================================
+
+function achievementFenubucks1(){
+    if(fenubucks >= 100 && achievementFenubucks1Status == false){
+        document.getElementById("achievementFenubucks1").removeAttribute("class")
+        let achievementFenubucks1Status = true
+    }
+}
+
+function achievementFenubucks2(){
+    if(fenubucks >= 1500 && achievementFenubucks2Status == false){
+        document.getElementById("achievementFenubucks2").removeAttribute("class")
+        document.getElementById("br1").removeAttribute("class")
+        let achievementFenubucks2Status = true
+    }
+}
+
+function achievementFenubucks3(){
+    if(fenubucks >= 10000 && achievementFenubucks3Status == false){
+        document.getElementById("achievementFenubucks3").removeAttribute("class")
+        document.getElementById("br2").removeAttribute("class")
+        let achievementFenubucks3Status = true
+    }
+}
+
+function achievementFenubucks4(){
+    if(fenubucks >= 50000 && achievementFenubucks4Status == false){
+        document.getElementById("achievementFenubucks4").removeAttribute("class")
+        document.getElementById("br3").removeAttribute("class")
+        let achievementFenubucks4Status = true
+    }
+}
+
+function achievementFenubucks5(){
+    if(fenubucks >= 100000 && achievementFenubucks5Status == false){
+        document.getElementById("achievementFenubucks5").removeAttribute("class")
+        document.getElementById("br4").removeAttribute("class")
+        let achievementFenubucks5Status = true
+    }
+}
+
+function achievementFenubucks6(){
+    if(fenubucks >= 300000 && achievementFenubucks6Status == false){
+        document.getElementById("achievementFenubucks6").removeAttribute("class")
+        document.getElementById("br5").removeAttribute("class")
+        let achievementFenubucks6Status = true
+    }
+}
+
+//golden fenubucks ============================================================
+
+function achievementGoldenFenubucks1(){
+    if(gfenubucks >= 1 && achievementGoldenFenubucks1Status == false){
+        document.getElementById("achievementGoldenFenubucks1").removeAttribute("class")
+        document.getElementById("br6").removeAttribute("class")
+        let achievementGoldenFenubucks1Status = true
+    }
+}
+
+function achievementGoldenFenubucks2(){
+    if(gfenubucks >= 100 && achievementGoldenFenubucks2Status == false){
+        document.getElementById("achievementGoldenFenubucks2").removeAttribute("class")
+        document.getElementById("br7").removeAttribute("class")
+        let achievementGoldenFenubucks2Status = true
+    }
+}
+
+function achievementGoldenFenubucks3(){
+    if(gfenubucks >= 1500 && achievementGoldenFenubucks3Status == false){
+        document.getElementById("achievementGoldenFenubucks3").removeAttribute("class")
+        document.getElementById("br8").removeAttribute("class")
+        let achievementGoldenFenubucks3Status = true
+    }
+}
+
+function achievementGoldenFenubucks4(){
+    if(gfenubucks >= 10000 && achievementGoldenFenubucks4Status == false){
+        document.getElementById("achievementGoldenFenubucks4").removeAttribute("class")
+        document.getElementById("br9").removeAttribute("class")
+        let achievementGoldenFenubucks4Status = true
+    }
+}
+
+function achievementGoldenFenubucks5(){
+    if(gfenubucks >= 50000 && achievementGoldenFenubucks5Status == false){
+        document.getElementById("achievementGoldenFenubucks5").removeAttribute("class")
+        document.getElementById("br10").removeAttribute("class")
+        let achievementGoldenFenubucks5Status = true
+    }
+}
+
+function achievementGoldenFenubucks6(){
+    if(gfenubucks >= 100000 && achievementGoldenFenubucks6Status == false){
+        document.getElementById("achievementGoldenFenubucks6").removeAttribute("class")
+        document.getElementById("br11").removeAttribute("class")
+        let achievementGoldenFenubucks6Status = true
+    }
+}
+
+function achievementGoldenFenubucks7(){
+    if(gfenubucks >= 300000 && achievementGoldenFenubucks7Status == false){
+        document.getElementById("achievementGoldenFenubucks7").removeAttribute("class")
+        document.getElementById("br12").removeAttribute("class")
+        let achievementGoldenFenubucks7Status = true
+    }
+}
+
+// exchange ===================================================================
+
+// hidden =====================================================================
+
+function achievementHidden1(){
+    if(document.getElementById("betterPhotocopierId").hidden == false && achievementHidden1Status == false){
+        document.getElementById("achievementHidden1").removeAttribute("class")
+        document.getElementById("br13").removeAttribute("class")
+        let achievementHidden1Status = true
+    }
+}
+
+//stiudents ================================================================================
+
+var stiudents = 0;
+var stiudentCost = 10;
+
+function buyStiudent(){
+    stiudentCost = Math.floor(10 * Math.pow(1.1,stiudents));
+    if(fenubucks >= stiudentCost){
+        stiudents = stiudents + 1;
+    	fenubucks = fenubucks - stiudentCost;
+        document.getElementById('stiudents').innerHTML = stiudents;
+        document.getElementById('fenubucks').innerHTML = fenubucks;
+        console.log("stiudent bought");
+    } else {
+        notEnoughFenu()
+    };
+    stiudentCost = Math.floor(10 * Math.pow(1.1,stiudents));
+    document.getElementById('stiudentCost').innerHTML = stiudentCost;
+};
+
+window.setInterval(function(){
+	
+	photocopyFenubucks(stiudents);
+	
+}, 1000);
+
+//aulas ====================================================================================
+
+var aulas = 0;
+var aulaCost = 100;
+
+function buildAula(){
+    aulaCost = Math.floor(100 * Math.pow(1.1,aulas));
+    if(fenubucks >= aulaCost){
+        aulas = aulas + 1;
+    	fenubucks = fenubucks - aulaCost;
+        document.getElementById('aulas').innerHTML = aulas;
+        document.getElementById('fenubucks').innerHTML = fenubucks;
+        console.log("aula built");
+    } else {
+        notEnoughFenu()
+    };
+    aulaCost = Math.floor(100 * Math.pow(1.1,aulas));
+    document.getElementById('aulaCost').innerHTML = aulaCost;
+};
+
+
+window.setInterval(function(){
+	
+	photocopyFenubucks(aulas * 8);
+	
+}, 1000);
+
+//erasers ==================================================================================
+
+var erasers = 0;
+var eraserCost = 480;
+
+function throwEraser(){
+    eraserCost = Math.floor(480 * Math.pow(1.1,erasers));
+    if(fenubucks >= eraserCost){
+        erasers = erasers + 1;
+    	fenubucks = fenubucks - eraserCost;
+        document.getElementById('erasers').innerHTML = erasers;
+        document.getElementById('fenubucks').innerHTML = fenubucks;
+        console.log("eraser thrown");
+    } else {
+        notEnoughFenu()
+    };
+    eraserCost = Math.floor(480 * Math.pow(1.1,erasers));
+    document.getElementById('eraserCost').innerHTML = eraserCost;
+};
+
+
+window.setInterval(function(){
+	
+	photocopyFenubucks(erasers * 40);
+	
+}, 1000);
+
+//cameras ===================================================================================
+
+var cameras = 0;
+var cameraCost = 800;
+
+function unmuteCamera(){
+    cameraCost = Math.floor(800 * Math.pow(1.1,cameras));
+    if(fenubucks >= cameraCost){
+        cameras = cameras + 1;
+    	fenubucks = fenubucks - cameraCost;
+        document.getElementById('cameras').innerHTML = cameras;
+        document.getElementById('fenubucks').innerHTML = fenubucks;
+        console.log("camera unmuted");
+    } else {
+        notEnoughFenu()
+    };
+    cameraCost = Math.floor(800 * Math.pow(1.1,cameras));
+    document.getElementById('cameraCost').innerHTML = cameraCost;
+};
+
+window.setInterval(function(){
+	
+	photocopyFenubucks(cameras * 64);
+	
+}, 1000);
+
+//pastas ====================================================================================
+
+var pastas = 0;
+var pastaCost = 2800;
+
+function slurpPasta(){
+    pastaCost = Math.floor(2800 * Math.pow(1.1,pastas));
+    if(fenubucks >= pastaCost){
+        pastas = pastas + 1;
+    	fenubucks = fenubucks - pastaCost;
+        document.getElementById('pastas').innerHTML = pastas;
+        document.getElementById('fenubucks').innerHTML = fenubucks;
+        console.log("pasta slurped");
+    } else {
+        notEnoughFenu()
+    };
+    pastaCost = Math.floor(2800 * Math.pow(1.1,pastas));
+    document.getElementById('pastaCost').innerHTML = pastaCost;
+};
+
+
+window.setInterval(function(){
+	
+	photocopyFenubucks(pastas * 80);
+	
+}, 1000);
+
+//unlock golden fenubucks ==================================================================
+
+function unlockGoldenFenubucks(){
+    if(fenubucks >= 50000){
+        fenubucks = fenubucks - 50000
+        gfenubucks = gfenubucks + 1
+        document.getElementById("unlockGoldenFenubucks").disabled = true
+    } else {
+        unlockGolden();
+    }
+}
+
+//cibo =====================================================================================
+
+var cibos = 0;
+var ciboCost = 100000;
+
+function mineCibo(){
+    if(gfenubucks == 0){
+       unlockGolden();
+    } else {
+        ciboCost = Math.floor(100000 * Math.pow(1.1,cibos));
+        if(fenubucks >= ciboCost){
+            cibos = cibos + 1;
+            fenubucks = fenubucks - ciboCost;
+            document.getElementById('cibos').innerHTML = cibos;
+            document.getElementById('gfenubucks').innerHTML = gfenubucks;
+            console.log("cibo mined");
+        } else {
+            notEnoughFenu()
+        };
+        ciboCost = Math.floor(100000 * Math.pow(1.1,cibos));
+        document.getElementById('ciboCost').innerHTML = ciboCost;
+    }
+}
+
+
+window.setInterval(function(){
+	
+	photocopygFenubucks(cibos);
+	
+}, 1000);
+
+//picolo libro =============================================================================
+
+var libros = 0;
+var libroCost = 100;
+
+function readLibro(){
+    if(gfenubucks == 0){
+        unlockGolden();
+    } else {
+        libroCost = Math.floor(100 * Math.pow(1.1,libros));
+        if(gfenubucks >= libroCost){
+            libros = libros + 1;
+        	gfenubucks = gfenubucks - libroCost;
+            document.getElementById('libros').innerHTML = libros;
+            document.getElementById('gfenubucks').innerHTML = gfenubucks;
+            console.log("libro read");
+        } else {
+        notEnoughFenuGolden()
+        };
+        libroCost = Math.floor(100 * Math.pow(1.1,libros));
+        document.getElementById('libroCost').innerHTML = libroCost;
+    };
+}
+
+window.setInterval(function(){
+	
+	photocopygFenubucks(libros * 10);
+	
+}, 1000);
+
+//galbani ==================================================================================
+
+var galbanis = 0;
+var galbaniCost = 300;
+
+function eatGalbani(){
+    if(gfenubucks == 0){
+        unlockGolden();
+    } else {
+        galbaniCost = Math.floor(300 * Math.pow(1.1,galbanis));
+        if(gfenubucks >= libroCost){
+            galbanis = galbanis + 1;
+        	gfenubucks = gfenubucks - galbaniCost;
+            document.getElementById('galbanis').innerHTML = galbanis;
+            document.getElementById('gfenubucks').innerHTML = gfenubucks;
+            console.log("libro read");
+        } else {
+            notEnoughFenuGolden()
+        };
+        galbaniCost = Math.floor(300 * Math.pow(1.1,galbanis));
+        document.getElementById('galbaniCost').innerHTML = galbaniCost;
+    };
+}
+
+window.setInterval(function(){
+	
+	photocopygFenubucks(galbanis * 150);
+	
+}, 1000);
+
+</script>
