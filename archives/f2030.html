@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<title>
+    Fenu Clicker 2 v0.3.0
+</title>
+<head>
+    <style>
+        div.body {
+            font-family: "Ubuntu", serif;
+        }
+
+    </style>
+
+
+    <body>
+        <div class="body">
+        Fenu Clicker 2 v0.3.0
+        <br>
+        <button onclick="save()">Save</button>
+        <button onclick="load()">Load</button>
+        <button onclick="wipe()">Delete Save</button>
+        Clicks:<span id="clickCount">0</span></div>
+        <h3>F$: <span id="fenubucks">0</span></h3>
+        <button onclick="photocopyFenubucks(1)"><b>Photocopy Fenubucks</b></button>
+        <br>
+        <br>
+        Stiudent Cost: <span id="stiudentCost">10</span>
+        F$
+        <br>
+        Stiudents Bought: <span id="stiudents">0</span>
+        <br>
+        <button onclick="buyStiudent()">Buy Stiudent</button>
+        <br>
+        <br>
+        Aula Cost: <span id="aulaCost">100</span>
+        F$
+        <br>
+        Aulas Built: <span id="aulas">0</span>
+        <br>
+        <button onclick="buildAula()">Build Aula</button>
+        </div>
+    </body>
+
+
+
+<script>
+//saving ===============================================================
+
+var stiudentCostSave = stiudentCost
+var aulaCostSave = aulaCost
+
+//save ==========
+function save(){
+    var save = {
+        //fenubucks
+        fenubucks: fenubucks,
+
+        //stiudents
+        stiudents: stiudents,
+        stiudentCostSave: stiudentCostSave,
+
+        //aulas
+        aulas: aulas,
+        aulaCostSave: aulaCostSave,
+    }
+    localStorage.setItem("save",JSON.stringify(save));
+}
+
+//load ==========
+function load(){
+    var savegame = JSON.parse(localStorage.getItem("save"));
+
+    //fenubucks
+    if (typeof savegame.fenubucks !== "undefined") fenubucks = savegame.fenubucks;
+
+    //stiudents
+    if (typeof savegame.stiudents !== "undefined") stiudents = savegame.stiudents;
+    if (typeof savegame.stiudentCostSave !== "undefined") stiudentCostSave = savegame.stiudentCostSave;
+
+    //aulas
+    if (typeof savegame.aulas !== "undefined") aulas = savegame.aulas;
+    if (typeof savegame.aulaCostSave !== "undefined") aulaCostSave = savegame.aulaCostSave;
+}
+
+//delete ==========
+function wipe(){
+    if(confirm('Are you sure you want to wipe your save data? This cannot be undone.')){
+        console.log("save wiped")
+        localStorage.removeItem("save")
+    } else {
+        console.log("save kept")
+    }
+    
+}
+
+//important ============================================================
+
+{
+var fenubucks = 0;
+}
+
+function notEnoughFenu(){
+    window.alert("Not enough Fenubucks!")
+}
+
+function photocopyFenubucks(number){
+    fenubucks = fenubucks + number;
+    document.getElementById("fenubucks").innerHTML = fenubucks;
+};
+
+//achievement manager ==================================================
+
+function Achievement(name, text, checkFunction){
+  this.name = name;
+  this.text = text;
+  this.checkFunction = checkFunction;
+}
+
+var numClicks = 0;
+window.onclick = function() {
+          numClicks++;
+    }
+{}
+
+//1k clickstastic ==========
+
+var a = achievents[i];
+if (a.monitoredObject[a.monitoredVariableName] > a.value) {
+
+
+
+//stiudents ============================================================
+
+{
+var stiudents = 0;
+}
+
+function buyStiudent(){
+    var stiudentCost = Math.floor(10 * Math.pow(1.1,stiudents));
+    if(fenubucks >= stiudentCost){
+        stiudents = stiudents + 1;
+    	fenubucks = fenubucks - stiudentCost;
+        document.getElementById('stiudents').innerHTML = stiudents;
+        document.getElementById('fenubucks').innerHTML = fenubucks;
+    } else {
+        notEnoughFenu()
+    };
+    var nextCostStiudent = Math.floor(10 * Math.pow(1.1,stiudents));
+    document.getElementById('stiudentCost').innerHTML = nextCostStiudent;
+};
+
+window.setInterval(function(){
+	
+	photocopyFenubucks(stiudents);
+	
+}, 1000);
+
+//aulas ================================================================
+
+{
+var aulas = 0;
+}
+
+function buildAula(){
+    var aulaCost = Math.floor(100 * Math.pow(1.1,aulas));
+    if(fenubucks >= aulaCost){
+        aulas = aulas + 1;
+    	fenubucks = fenubucks - aulaCost;
+        document.getElementById('aulas').innerHTML = aulas;
+        document.getElementById('fenubucks').innerHTML = fenubucks;
+    } else {
+        notEnoughFenu()
+    };
+    var nextCostAula = Math.floor(100 * Math.pow(1.1,aulas));
+    document.getElementById('aulaCost').innerHTML = nextCostAula;
+};
+
+window.setInterval(function(){
+	
+	photocopyFenubucks(aulas * 4);
+	
+}, 1000);
+
+//eraser ===============================================================
+//galbani ==============================================================
+//cibo =================================================================
+
+}
+</script>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<title>
+    Fenu Clicker 2 v0.5.0
+</title>
+<head>
+    <style>
+        div.body {
+            font-family: "Ubuntu", serif;
+        }
+
+    </style>
+
+
+    <body>
+        <div class="body">
+        Fenu Clicker 2 v0.5.0
+        <br>
+        <button onclick="save()">Save</button>
+        <button onclick="load()">Load</button>
+        <button onclick="wipe()">Delete Save</button>
+        <h3>F$: <span id="fenubucks">0</span></h3>
+        <button onclick="photocopyFenubucks(1)"><b>Photocopy Fenubucks</b></button>
+        <br>
+        <br>
+        Stiudent Cost: <span id="stiudentCost">10</span>
+        F$
+        <br>
+        Stiudents Bought: <span id="stiudents">0</span>
+        <br>
+        <button onclick="buyStiudent()">Buy Stiudent</button>
+        <br>
+        <br>
+        Aula Cost: <span id="aulaCost">100</span>
+        F$
+        <br>
+        Aulas Built: <span id="aulas">0</span>
+        <br>
+        <button onclick="buildAula()">Build Aula</button>
+        <br>
+        <br>
+        Eraser Cost: <span id="eraserCost">480</span>
+        F$
+        <br>
+        Erasers Thrown: <span id="erasers">0</span>
+        <br>
+        <button onclick="throwEraser()">Throw Eraser</button>
+        </div>
+    </body>
+<script>
+
+//saving ===================================================================================
+
+//save ====================
+
+function save() {
+    localStorage.setItem('fenubucks', JSON.stringify(fenubucks));
+
+    //stiudents ==========
+
+    localStorage.setItem('stiudentCost', JSON.stringify(stiudentCost));
+    localStorage.setItem('stiudents', JSON.stringify(stiudents));
+    
+    //aulas ==============
+
+    localStorage.setItem('aulaCost', JSON.stringify(aulaCost));
+    localStorage.setItem('aulas', JSON.stringify(aulas));
+
+    //erasers ============
+
+    localStorage.setItem('eraserCost', JSON.stringify(eraserCost));
+    localStorage.setItem('erasers', JSON.stringify(erasers));
+
+    //==========
+
+    window.alert("Game saved!")
+    console.log("game saved")
+}
+
+//load ====================
+function load() {
+    fenubucks = JSON.parse(localStorage.getItem('fenubucks'));
+
+    document.getElementById('fenubucks').innerHTML = fenubucks;
+
+    //stiudents ==========
+
+    stiudentCost = JSON.parse(window.localStorage.getItem('stiudentCost'));
+    stiudents = JSON.parse(window.localStorage.getItem('stiudents'));
+
+    document.getElementById('stiudentCost').innerHTML = stiudentCost +0;
+    document.getElementById('stiudents').innerHTML = stiudents;
+
+    //aulas ==============
+
+    aulaCost = JSON.parse(window.localStorage.getItem('aulaCost'));
+    aulas = JSON.parse(window.localStorage.getItem('aulas'));
+
+    document.getElementById('aulaCost').innerHTML = aulaCost + 0;
+    document.getElementById('aulas').innerHTML = aulas;
+
+    //erasers ============
+    
+    eraserCost = JSON.parse(window.localStorage.getItem('eraserCost'));
+    erasers = JSON.parse(window.localStorage.getItem('erasers'));
+
+    document.getElementById('eraserCost').innerHTML = eraserCost + 0;
+    document.getElementById('erasers').innerHTML = erasers;
+
+    //==========
+    window.alert("Save loaded!")
+    console.log("save loaded")
+}
+
+//delete =====================
+function wipe(){
+    if(confirm('Are you sure you want to wipe your save data? This cannot be undone.')){
+        console.log("save wiped")
+        localStorage.removeItem("save")
+    } else {
+        console.log("save kept")
+    }
+    
+}
+
+//important ================================================================================
+
+console.log("thanks to Cass for helping me with bugs")
+console.log("thanks to Jax for being a retard!!")
+
+{
+var fenubucks = 0;
+}
+
+function notEnoughFenu(){
+    window.alert("Not enough Fenubucks!")
+}
+
+function photocopyFenubucks(number){
+    fenubucks = fenubucks + number;
+    document.getElementById("fenubucks").innerHTML = fenubucks;
+};
+
+//achievement manager ======================================================================
+
+//achievements kinda borken rn :/ ==========================================================
+
+//stiudents ================================================================================
+
+var stiudents = 0;
+stiudentCost = 0;
+
+function buyStiudent(){
+    stiudentCost = Math.floor(10 * Math.pow(1.1,stiudents));
+    if(fenubucks >= stiudentCost){
+        stiudents = stiudents + 1;
+    	fenubucks = fenubucks - stiudentCost;
+        document.getElementById('stiudents').innerHTML = stiudents;
+        document.getElementById('fenubucks').innerHTML = fenubucks;
+    } else {
+        notEnoughFenu()
+    };
+    stiudentCost = Math.floor(10 * Math.pow(1.1,stiudents));
+    document.getElementById('stiudentCost').innerHTML = stiudentCost;
+};
+
+window.setInterval(function(){
+	
+	photocopyFenubucks(stiudents);
+	
+}, 1000);
+
+//aulas ====================================================================================
+
+var aulas = 0;
+var aulaCost = 0;
+
+function buildAula(){
+    aulaCost = Math.floor(150 * Math.pow(1.1,aulas));
+    if(fenubucks >= aulaCost){
+        aulas = aulas + 1;
+    	fenubucks = fenubucks - aulaCost;
+        document.getElementById('aulas').innerHTML = aulas;
+        document.getElementById('fenubucks').innerHTML = fenubucks;
+    } else {
+        notEnoughFenu()
+    };
+    aulaCost = Math.floor(150 * Math.pow(1.1,aulas));
+    document.getElementById('aulaCost').innerHTML = aulaCost;
+};
+
+
+window.setInterval(function(){
+	
+	photocopyFenubucks(aulas * 4);
+	
+}, 1000);
+
+//eraser ===================================================================================
+
+var erasers = 0;
+var eraserCost = 0;
+
+function throwEraser(){
+    eraserCost = Math.floor(480 * Math.pow(1.1,erasers));
+    if(fenubucks >= eraserCost){
+        erasers = erasers + 1;
+    	fenubucks = fenubucks - eraserCost;
+        document.getElementById('erasers').innerHTML = erasers;
+        document.getElementById('fenubucks').innerHTML = fenubucks;
+    } else {
+        notEnoughFenu()
+    };
+    eraserCost = Math.floor(480 * Math.pow(1.1,erasers));
+    document.getElementById('eraserCost').innerHTML = eraserCost;
+};
+
+
+window.setInterval(function(){
+	
+	photocopyFenubucks(erasers * 15);
+	
+}, 1000);
+
+//galbani ==================================================================================
+//cibo =====================================================================================
+//pasta ====================================================================================
+//kamera ===================================================================================
+
+</script>
