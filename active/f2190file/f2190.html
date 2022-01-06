@@ -365,15 +365,6 @@ function save() {
 
     //exchange =========
 
-    localStorage.setItem('achievementExchange1Status', JSON.stringify(achievementExchange1Status));
-    localStorage.setItem('achievementExchange2Status', JSON.stringify(achievementExchange2Status));
-    localStorage.setItem('achievementExchange3Status', JSON.stringify(achievementExchange3Status));
-    localStorage.setItem('achievementExchange4Status', JSON.stringify(achievementExchange4Status));
-    localStorage.setItem('achievementExchange5Status', JSON.stringify(achievementExchange5Status));
-
-    localStorage.setItem('exchangeCount', JSON.stringify(exchangeCount));
-
-
     //hidden achievements ===========
 
     localStorage.setItem('achievementHidden1Status', JSON.stringify(achievementHidden1Status));
@@ -512,24 +503,6 @@ function load() {
     document.getElementById('achievementGoldenFenubucks7Status').innerHTML = achievementGoldenFenubucks7Status;
 
     //exchange achievements =======================================================
-
-    achievementExchange1Status = JSON.parse(window.localStorage.getItem('achievementExchange1Status'));
-    document.getElementById('achievementExchange1Status').innerHTML = achievementExchange1Status;
-
-    achievementExchange2Status = JSON.parse(window.localStorage.getItem('achievementExchange2Status'));
-    document.getElementById('achievementExchange2Status').innerHTML = achievementExchange2Status;
-
-    achievementExchange3Status = JSON.parse(window.localStorage.getItem('achievementExchange3Status'));
-    document.getElementById('achievementExchange3Status').innerHTML = achievementExchange3Status;
-
-    achievementExchange4Status = JSON.parse(window.localStorage.getItem('achievementExchange4Status'));
-    document.getElementById('achievementExchange4Status').innerHTML = achievementExchange4Status;
-
-    achievementExchange5Status = JSON.parse(window.localStorage.getItem('achievementExchange5Status'));
-    document.getElementById('achievementExchange5Status').innerHTML = achievementExchange5Status;
-
-    exchangeCount = JSON.parse(window.localStorage.getItem('exchangeCount'));
-    document.getElementById('exchangeCount').innerHTML = exchangeCount;
 
     //hidden achievements =========================================================
 
