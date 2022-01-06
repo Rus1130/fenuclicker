@@ -537,8 +537,6 @@ let fenubucks = 0;
 var gfenubucks = 0;
 var photocopier = 1;
 var photocopyCost = 100 * (photocopier / 2)
-var achCount = 0
-
 
 function notEnoughFenu(){
     if(settingsNoFenuPopupValue == true){
@@ -600,6 +598,8 @@ window.setInterval(function cyclicalCheck(){
 
 //variable bank ===============================================================
 
+var achCount = 0
+
 let achievementFenubucks1Status = false;
 let achievementFenubucks2Status = false;
 let achievementFenubucks3Status = false;
@@ -653,9 +653,8 @@ function checkAchievements(){
 
 function achievementFenubucks1(){
     if(fenubucks >= 100 && achievementFenubucks1Status == false){
-        document.getElementById("achievementFenubucks1").removeAttribute("class")
+        document.getElementById("achievementFenubucks1").removeAttribute("class");
         let achievementFenubucks1Status = true;
-        achCount = achCount + 1
     }
 }
 
