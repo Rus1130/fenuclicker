@@ -655,9 +655,11 @@ function achievementFenubucks1(){
     if(fenubucks >= 100 && achievementFenubucks1Status == false){
         document.getElementById("achievementFenubucks1").removeAttribute("class");
         achievementFenubucks1Status = !achievementFenubucks1Status
+        console.log("a")
     }
     if(achievementFenubucks1Status == true){
         document.getElementById("achievementFenubucks1").removeAttribute("class");
+        console.log("b")
     }
 }
 
@@ -667,7 +669,7 @@ function achievementFenubucks2(){
         document.getElementById("br1").removeAttribute("class")
         achievementFenubucks2Status == !achievementFenubucks2Status
     }
-    if(achivementFenubucks2Status == true){
+    if(achievementFenubucks2Status == true){
         document.getElementById("achievementFenubucks2").removeAttribute("class")
         document.getElementById("br1").removeAttribute("class")
     }
@@ -801,7 +803,7 @@ function achievementGoldenFenubucks7(){
         document.getElementById("br12").removeAttribute("class")
         achievementGoldenFenubucks7Status = !achievementGoldenFenubucks7Status
     }
-    if(achivementGoldenFenubucks7Status == true){
+    if(achievementGoldenFenubucks7Status == true){
         document.getElementById("achievementGoldenFenubucks7").removeAttribute("class")
         document.getElementById("br12").removeAttribute("class")   
     }
