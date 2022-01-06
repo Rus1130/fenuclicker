@@ -365,6 +365,9 @@ function save() {
 
     //exchange =========
 
+    localStorage.setItem('achievementExchange1Status', JSON.stringify(achievementExchange1Status));
+
+
     //hidden achievements ===========
 
     localStorage.setItem('achievementHidden1Status', JSON.stringify(achievementHidden1Status));
@@ -503,6 +506,9 @@ function load() {
     document.getElementById('achievementGoldenFenubucks7Status').innerHTML = achievementGoldenFenubucks7Status;
 
     //exchange achievements =======================================================
+
+    achievementExchange1Status = JSON.parse(window.localStorage.getItem('achievementExchange1Status'));
+    document.getElementById('achievementExchange1Status').innerHTML = achievementExchange1Status;
 
     //hidden achievements =========================================================
 
