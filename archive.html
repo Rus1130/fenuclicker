@@ -1,32 +1,139 @@
-<style>
-    .look{
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: center;
-    }
-    .homebtn{
-    position: absolute;
-    font-family: Arial, Helvetica, sans-serif;
-    top: -3;
-    right: 60;
-    }
-    .linkColor{
-        color: rgb(0, 102, 204);
-    }
-</style>
+<!DOCTYPE html>
+<html>
 
-<head>
-    <body style class="look">
-        <h1>Welcome to the Fenuclicker archive</h1>
-        <p><a href="archives\f2001.html" style class="linkColor"> Fenuclicker v0.0.1</a></p>
-        <p><a href="archives\f2030.html" style class="linkColor"> Fenuclicker v0.3.0</a></p>
-        <p><a href="archives\f2040.html" style class="linkColor"> Fenuclicker v0.4.0</a></p>
-        <p><a href="archives\f2050.html" style class="linkColor"> Fenuclicker v0.5.0</a></p>
-        <p><a href="archives\f2100.html" style class="linkColor"> Fenuclicker v1.0.0</a></p>
-        <p><a href="archives\f2110.html" style class="linkColor"> Fenuclicker v1.1.0</a></p>
-        <p><a href="archives\f2150.html" style class="linkColor"> Fenuclicker v1.5.0</a></p>
-        <p><a href="archives\f2151.html" style class="linkColor"> Fenuclicker v1.5.1</a></p>
-        <p><a href="archives\f2160.html" style class="linkColor"> Fenuclicker v1.6.0</a></p>
-        <p><a href="archives\f2180file\f2180.html" style class="linkColor"> Fenuclicker v1.8.0</a></p>
-    </body>
-    <p style class="homebtn"><a href="index.html" style class="linkColor">Home</p></a>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <html lang="en">
+    <meta name="Keywords" content="fenu, clicker, cookie clicer, clicker game, unblocked game">
+    <link rel="icon" type="image/x-icon" href="/images/italianflag.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fenuclicker Archive</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+        body,
+        html {
+          height: 50%;
+        }
+  
+        h1 {
+            color: whitesmoke
+        }
+
+        p {
+            color: whitesmoke
+        }
+
+        .center {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+  
+        body {
+          font-family: "Press Start 2P", serif;
+
+        }
+
+        .button {
+          background-color: rgb(159, 187, 247);
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          border: none;
+          transition-duration: 0.4s;
+          border-radius: 12px;
+        }
+
+        .button:hover {
+          background-color: whitesmoke;
+          color: black;
+        }
+  
+        div {
+          color: white;
+        }
+  
+        body {
+          background-color: rgb(47, 53, 60);
+        }
+
+        .topnav {
+        background-color: rgb(47, 53, 60);
+        overflow: hidden;
+        }
+
+        .topnav a {
+          float: left;
+          color: whitesmoke;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+
+        .topnav a:hover {
+          background-color: #ddd;
+          color: rgb(47, 53, 60);
+        }
+
+        .parallax {
+          background-image: url("/images/techbackground.jfif");
+
+          height: 90%;
+
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+
+        .footer {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          padding: 1rem;
+          background-color: rgb(47, 53, 60);
+          text-align: center;
+        }
+
+      </style>
+
+  </head>
+
+  <body>
+
+    <h1 style="text-align: center;">Welcome to the Fenuclicker Archive!</h1>
+
+    <div class="parallax"></div>
+
+    <div
+      style="
+        height: 0 auto;
+        text-align: center;
+        width: 0 auto;
+        font-size: 24px;
+        margin: 0 auto;
+      "
+    >
+      <p>The arcihve is a collection of past versions of the game. Take a look!</p>
+      <button class="button" onclick="window.location.href='/archives/f2180file/f2180.html'" type="button">Latest Version</button> 
+      <button class="button" onclick="window.location.href='/archive.html'" type="button">Version Archive</button> 
+    </div>
+
+    <div class="parallax"></div>
+
+    
+
+  </body>
+
+  <div class="footer" style="color: whitesmoke">© 2021 - 2022 Rus1130. All rights reserved. Website coded by Wafelkoira.</div>
+
+</html>
