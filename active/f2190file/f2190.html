@@ -598,8 +598,6 @@ window.setInterval(function cyclicalCheck(){
 
 //variable bank ===============================================================
 
-var achCount = 0
-
 var achievementFenubucks1Status = false;
 var achievementFenubucks2Status = false;
 var achievementFenubucks3Status = false;
@@ -661,9 +659,6 @@ function achievementFenubucks1(){
     }
 }
 
-if(achievementFenubucks1Status == true){
-    achCount = achCount + 1
-}
 
 function achievementFenubucks2(){
     if(fenubucks >= 1500 && achievementFenubucks2Status == false){
@@ -677,9 +672,6 @@ function achievementFenubucks2(){
     }
 }
 
-if(achievementFenubucks2Status == true){
-    achCount = achCount + 1
-}
 
 function achievementFenubucks3(){
     if(fenubucks >= 10000 && achievementFenubucks3Status == false){
@@ -693,9 +685,6 @@ function achievementFenubucks3(){
     }
 }
 
-if(achievementFenubucks3Status == true){
-    achCount = achCount + 1
-}
 
 function achievementFenubucks4(){
     if(fenubucks >= 50000 && achievementFenubucks4Status == false){
@@ -709,9 +698,6 @@ function achievementFenubucks4(){
     }
 }
 
-if(achievementFenubucks4Status == true){
-    achCount = achCount + 1
-}
 
 function achievementFenubucks5(){
     if(fenubucks >= 100000 && achievementFenubucks5Status == false){
@@ -725,9 +711,6 @@ function achievementFenubucks5(){
     }
 }
 
-if(achievementFenubucks5Status == true){
-    achCount = achCount + 1
-}
 
 function achievementFenubucks6(){
     if(fenubucks >= 300000 && achievementFenubucks6Status == false){
@@ -741,9 +724,6 @@ function achievementFenubucks6(){
     }
 }
 
-if(achievementFenubucks6Status == true){
-    achCount = achCount + 1
-}
 
 //golden fenubucks ============================================================
 
@@ -759,9 +739,6 @@ function achievementGoldenFenubucks1(){
     }
 }
 
-if(achievementGoldenFenubucks1Status == true){
-    achCount = achCount + 1
-}
 
 function achievementGoldenFenubucks2(){
     if(gfenubucks >= 100 && achievementGoldenFenubucks2Status == false){
@@ -773,10 +750,6 @@ function achievementGoldenFenubucks2(){
         document.getElementById("achievementGoldenFenubucks2").removeAttribute("class")
         document.getElementById("br7").removeAttribute("class")
     }
-}
-
-if(achievementGoldenFenubucks2Status == true){
-    achCount = achCount + 1
 }
 
 function achievementGoldenFenubucks3(){
@@ -791,9 +764,6 @@ function achievementGoldenFenubucks3(){
     }
 }
 
-if(achievementGoldenFenubucks3Status == true){
-    achCount = achCount + 1
-}
 
 function achievementGoldenFenubucks4(){
     if(gfenubucks >= 10000 && achievementGoldenFenubucks4Status == false){
@@ -807,9 +777,6 @@ function achievementGoldenFenubucks4(){
     }
 }
 
-if(achievementGoldenFenubucks4Status == true){
-    achCount = achCount + 1
-}
 
 function achievementGoldenFenubucks5(){
     if(gfenubucks >= 50000 && achievementGoldenFenubucks5Status == false){
@@ -823,9 +790,6 @@ function achievementGoldenFenubucks5(){
     }
 }
 
-if(achievementGoldenFenubucks5Status == true){
-    achCount = achCount + 1
-}
 
 function achievementGoldenFenubucks6(){
     if(gfenubucks >= 100000 && achievementGoldenFenubucks6Status == false){
@@ -839,9 +803,6 @@ function achievementGoldenFenubucks6(){
     }
 }
 
-if(achievementGoldenFenubucks6Status == true){
-    achCount = achCount + 1
-}
 
 function achievementGoldenFenubucks7(){
     if(gfenubucks >= 300000 && achievementGoldenFenubucks7Status == false){
@@ -853,10 +814,6 @@ function achievementGoldenFenubucks7(){
         document.getElementById("achievementGoldenFenubucks7").removeAttribute("class")
         document.getElementById("br12").removeAttribute("class")   
     }
-}
-
-if(achievementGoldenFenubucks7Status == true){
-    achCount = achCount + 1
 }
 
 // exchange ===================================================================
@@ -873,10 +830,6 @@ function achievementExchange1(){
     }
 }
 
-if(achievementExchange1Status == true){
-    achCount = achCount + 1
-}
-
 function achievementExchange2(){
     if(exchangeCount >= 10 && achievementExchange2Status == false){
         document.getElementById("achievementExchange2").removeAttribute("class")
@@ -887,10 +840,6 @@ function achievementExchange2(){
         document.getElementById("achievementExchange2").removeAttribute("class")
         document.getElementById("br14").removeAttribute("class")
     }
-}
-
-if(achievementExchange2Status == true){
-    achCount = achCount + 1
 }
 
 function achievementExchange3(){
@@ -905,10 +854,6 @@ function achievementExchange3(){
     }
 }
 
-if(achievementExchange3Status == true){
-    achCount = achCount + 1
-}
-
 function achievementExchange4(){
     if(exchangeCount >= 1000 && achievementExchange4Status == false){
         document.getElementById("achievementExchange4").removeAttribute("class")
@@ -919,10 +864,6 @@ function achievementExchange4(){
         document.getElementById("achievementExchange4").removeAttribute("class")
         document.getElementById("br16").removeAttribute("class")
     }
-}
-
-if(achievementExchange4Status == true){
-    achCount = achCount + 1
 }
 
 function achievementExchange5(){
@@ -937,10 +878,6 @@ function achievementExchange5(){
     }
 }
 
-if(achievementExchange5Status == true){
-    achCount = achCount + 1
-}
-
 // hidden =====================================================================
 
 function achievementHidden1(){
@@ -953,10 +890,6 @@ function achievementHidden1(){
         document.getElementById("achievementHidden1").removeAttribute("class")
         document.getElementById("hidbr1").removeAttribute("class")
     }
-}
-
-if(achievementHidden1Status == true){
-    achCount = achCount + 1
 }
 
 //stiudents ================================================================================
