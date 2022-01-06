@@ -537,6 +537,7 @@ let fenubucks = 0;
 var gfenubucks = 0;
 var photocopier = 1;
 var photocopyCost = 100 * (photocopier / 2)
+var achCount = 0
 
 
 function notEnoughFenu(){
@@ -654,6 +655,7 @@ function achievementFenubucks1(){
     if(fenubucks >= 100 && achievementFenubucks1Status == false){
         document.getElementById("achievementFenubucks1").removeAttribute("class")
         let achievementFenubucks1Status = true;
+        achCount = achCount + 1
     }
 }
 
