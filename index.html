@@ -27,12 +27,6 @@
         p {
             color: whitesmoke
         }
-
-        .center {
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-        }
   
         body {
           font-family: "Ubuntu", serif;
@@ -83,6 +77,8 @@
           right: 0;
           padding: 1rem;
           text-align: center;
+          margin-left: 20%;
+          margin-right: 20%;
         }
 
         .topper {
@@ -94,19 +90,43 @@
           text-align: center;
         }
 
-        .discription {
+        .titlePlacement {
           position: absolute;
-          top: 50px;
+          top: 0;
+          left: 0;
+          right: 0;
+          display: block;
+          margin-left: 20%;
+          margin-right: 20%;
+          white-space: nowrap;
+        }
+        .discriptionPlacement {
+          position: absolute;
+          top: 70px;
+          left: 0;
+          right: 0;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .buttonPlacement {
+          position: absolute;
+          top: 190px;
+          left: 0;
+          right: 0;
+          display: flex;
+          justify-content: center;  
+          align-items: center;
+          margin-left: 20%;
+          margin-right: 20%;
         }
 
         .button {
           background-color: rgb(159, 187, 247);
           padding: 15px 32px;
-          text-align: center;
           text-decoration: none;
-          display: inline-block;
           font-size: 16px;
-          border: none;
+          border: 1px solid whitesmoke;
           transition-duration: 0.4s;
           border-radius: 12px;
         }
@@ -114,10 +134,10 @@
         .button:hover {
           background-color: whitesmoke;
           color: rgb(47, 53, 60);
+          border: 1px solid rgb(159, 187, 247);
         }
 
         .topbuttons {
-          position: relative;
           top: 10px;
         }
 
@@ -129,14 +149,18 @@
 
     
 
-    <div style class="discription">
-      <h1 style="text-align: center; margin-left: 100px; position: relative; color: rgb(47, 53, 60);">Welcome to Fenuclicker!</h1>
-
-      <p style="text-align: center; margin-left: 100px; position: relative; color: rgb(47, 53, 60);">Fenuclicker is an HTML based idle clicker game.</p>
-      <p style="text-align: center; margin-left: 100px; position: relative; color: rgb(47, 53, 60);">The game uses HTML, CSS and JavaScript.</p>
-      <p style="text-align: center; margin-left: 100px; position: relative; color: rgb(47, 53, 60);">Come photocopy some Fenubucks!</p>
-      <button style="margin-left: 100px; position: relative;" class="button" onclick="window.location.href='/fnclr-active/f2190file/f2190'" type="button">Latest Version</button>
-      <button class="button" onclick="window.location.href='/fnclr-archive'" type="button">Version Archive</button>
+    <div style class="titlePlacement">
+      <h1 style="text-align: center; color: rgb(47, 53, 60); position: absolute; left: 0; right: 0;">Welcome to Fenuclicker!</h1>
+    </div>
+    <div style class="discriptionPlacement">
+      <p style="text-align: center; margin-left: 20%; margin-right: 20%; color: rgb(47, 53, 60);">Fenuclicker is an HTML based idle clicker game.</p>
+      <p style="text-align: center; margin-left: 20%; margin-right: 20%; color: rgb(47, 53, 60);">The game uses HTML, CSS and JavaScript.</p>
+      <p style="text-align: center; margin-left: 20%; margin-right: 20%; color: rgb(47, 53, 60);">Come photocopy some Fenubucks!</p>
+    </div>
+    <div style class="buttonPlacement">
+      <button class="button" onclick="window.location.href='/fnclr-active/f2190file/f2190'" type="button">Latest Version</button>&nbsp;&nbsp;
+      <button class="button" onclick="window.location.href='fnclr-archive.html'" type="button">Version Archive</button>&nbsp;&nbsp;
+      <button class="button" onclick="window.location.href='fenuRPGhome.html'" type="button">Fenu RPG</button>
     </div>
     
 
@@ -144,5 +168,5 @@
 
   </body>
 
-  <footer style="top: 700px;" style="color: rgb(47, 53, 60);" class="footer">© 2021 - 2022 Rus1130. Site coded by Wafelkoira.</footer>
+  <footer style="color: rgb(47, 53, 60);" class="footer">© 2021 - 2022 Rus1130. Site "coded" by Wafelkoira. Fixed by Rus1130.</footer>
 </html>

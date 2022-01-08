@@ -21,10 +21,18 @@
         }
   
         h1 {
-            color: whitesmoke
-        }
+            position: absolute;
+            color: whitesmoke;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: block;
+            margin-left: 20px;
+            margin-right: 20px;
+            white-space: nowrap;
+          }
 
-        p {
+      p {
             color: whitesmoke
         }
 
@@ -80,6 +88,7 @@
           position: absolute;
           right: 0;
           left: 0;
+          bottom: 0;
           padding: 1rem;
           text-align: center;
         }
@@ -95,17 +104,31 @@
 
         .discription {
           position: absolute;
-          top: 50px;
+          top: 60px;
+          left: 0;
+          right: 0;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
         }
+
+        .buttonPlacement {
+          position: absolute;
+          top: 140px;
+          left: 0;
+          right: 0;
+          display: flex;
+          justify-content: center;  
+          align-items: center;
+        }
+
 
         .button {
           background-color: rgb(159, 187, 247);
           padding: 15px 32px;
-          text-align: center;
           text-decoration: none;
-          display: inline-block;
           font-size: 16px;
-          border: none;
+          border: 1px solid whitesmoke;
           transition-duration: 0.4s;
           border-radius: 12px;
         }
@@ -113,10 +136,18 @@
         .button:hover {
           background-color: whitesmoke;
           color: rgb(47, 53, 60);
+          border: 1px solid rgb(159, 187, 247);
         }
 
         .topbuttons {
           position: relative;
+          top: 10px;
+        }
+
+        .home{
+          position: absolute;
+          color: rgb(47, 53, 60);
+          right: 10px;
           top: 10px;
         }
 
@@ -125,21 +156,27 @@
   </head>
 
   <body>
+    <div style class="home">
+      <button class="button" onclick="window.location.href='index.html'" type="button">Home</button>
+    </div>
+    
 
     
 
     <div style class="discription">
-      <h1 style="color: black;">The archive is a collection of past versions of the game. Take a look!</h1>
-      <button class="button" onclick="window.location.href='/fnclr-archives/f2001.html'" type="button">v0.0.1</button>
-      <button class="button" onclick="window.location.href='/fnclr-archives/f2030.html'" type="button">v0.3.0</button>
-      <button class="button" onclick="window.location.href='/fnclr-archives/f2040.html'" type="button">v0.4.0</button>
-      <button class="button" onclick="window.location.href='/fnclr-archives/f2050.html'" type="button">v0.5.0</button>
-      <button class="button" onclick="window.location.href='/fnclr-archives/f2100.html'" type="button">v1.0.0</button>
-      <button class="button" onclick="window.location.href='/fnclr-archives/f2110.html'" type="button">v1.1.0</button>
-      <button class="button" onclick="window.location.href='/fnclr-archives/f2150.html'" type="button">v1.5.0</button>
-      <button class="button" onclick="window.location.href='/fnclr-archives/f2151.html'" type="button">v1.5.1</button>
-      <button class="button" onclick="window.location.href='/fnclr-archives/f2160.html'" type="button">v1.6.0</button>
-      <button class="button" onclick="window.location.href='/fnclr-archives/f2180file/f2180.html'" type="button">v1.8.0</button>
+      <h1 style="text-align: center; color: rgb(47, 53, 60); position: absolute; left: 0; right: 0;">The archive is a collection of past versions of the game. Take a look!</h1>
+      <div style class="buttonPlacement">
+        <button class="button" onclick="window.location.href='/fnclr-archives/f2001.html'" type="button">v0.0.1</button>&nbsp;&nbsp;
+        <button class="button" onclick="window.location.href='/fnclr-archives/f2030.html'" type="button">v0.3.0</button>&nbsp;&nbsp;
+        <button class="button" onclick="window.location.href='/fnclr-archives/f2040.html'" type="button">v0.4.0</button>&nbsp;&nbsp;
+        <button class="button" onclick="window.location.href='/fnclr-archives/f2050.html'" type="button">v0.5.0</button>&nbsp;&nbsp;
+        <button class="button" onclick="window.location.href='/fnclr-archives/f2100.html'" type="button">v1.0.0</button>&nbsp;&nbsp;
+        <button class="button" onclick="window.location.href='/fnclr-archives/f2110.html'" type="button">v1.1.0</button>&nbsp;&nbsp;
+        <button class="button" onclick="window.location.href='/fnclr-archives/f2150.html'" type="button">v1.5.0</button>&nbsp;&nbsp;
+        <button class="button" onclick="window.location.href='/fnclr-archives/f2151.html'" type="button">v1.5.1</button>&nbsp;&nbsp;
+        <button class="button" onclick="window.location.href='/fnclr-archives/f2160.html'" type="button">v1.6.0</button>&nbsp;&nbsp;
+        <button class="button" onclick="window.location.href='/fnclr-archives/f2180file/f2180.html'" type="button">v1.8.0</button>
+      </div>
       <p></p>
     </div>
     
@@ -148,5 +185,5 @@
 
   </body>
 
-  <footer style="top: 700px;" style="color: rgb(47, 53, 60);" class="footer">© 2021 - 2022 Rus1130. Site coded by Wafelkoira.</footer>
+  <footer style="color: rgb(47, 53, 60);" class="footer">© 2021 - 2022 Rus1130. Site "coded" by Wafelkoira. Fixed by Rus1130.</footer>
 </html>
