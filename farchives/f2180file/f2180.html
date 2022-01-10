@@ -51,10 +51,6 @@
             <span id="settingsSaveLoadWipePopupValue">true</span>
             <br>
             <br>
-            <input type="button" id="settingsSFX" value="Sound Effects" onclick="settingsSFX()">
-            <span id="settingsSFXValue">true</span>
-            <br>
-            <br>
             <input type="button" value="Show Compatible Browsers" onclick="compatibleBroswers()">
         </div>
         <div class="achievements">
@@ -109,7 +105,7 @@
         <button onclick="wipe()">Wipe Save</button>
         <h3>F$: <span id="fenubucks">0</span></h3>
         <h3>GF$: <span id="gfenubucks">0</span></h3>
-        <button onclick="photocopyFenubucks(photocopier); playFenu('fenu.mp3')"><b>Photocopy Fenubucks</b></button><button onclick="betterPhotocopier()" hidden=true id="betterPhotocopierId">Get better fenu photo</button>
+        <button onclick="photocopyFenubucks(photocopier)"><b>Photocopy Fenubucks</b></button><button onclick="betterPhotocopier()" hidden=true id="betterPhotocopierId">Get better fenu photo</button>
         <br>
         <br>
         Stiudent Cost: <span id="stiudentCost">10</span>
@@ -259,7 +255,7 @@ function playFenu(url) {
 
 var settingsNoFenuPopupValue = true;
 var settingsSaveLoadWipePopupValue = true;
-var settingsSFXValue = true;
+var settingsSFXValue = false;
 
 
 function settingsNoFenuPopup(){
@@ -872,7 +868,6 @@ function buyStiudent(){
         document.getElementById('stiudents').innerHTML = stiudents;
         document.getElementById('fenubucks').innerHTML = fenubucks;
         console.log("stiudent bought");
-        playStiudent()
     } else {
         notEnoughFenu()
     };
@@ -899,7 +894,6 @@ function buildAula(){
         document.getElementById('aulas').innerHTML = aulas;
         document.getElementById('fenubucks').innerHTML = fenubucks;
         console.log("aula built");
-        playAula()
     } else {
         notEnoughFenu()
     };
@@ -927,7 +921,6 @@ function throwEraser(){
         document.getElementById('erasers').innerHTML = erasers;
         document.getElementById('fenubucks').innerHTML = fenubucks;
         console.log("eraser thrown");
-        playEraser()
     } else {
         notEnoughFenu()
     };
@@ -955,7 +948,6 @@ function unmuteCamera(){
         document.getElementById('cameras').innerHTML = cameras;
         document.getElementById('fenubucks').innerHTML = fenubucks;
         console.log("camera unmuted");
-        playCamera()
     } else {
         notEnoughFenu()
     };
@@ -982,7 +974,6 @@ function slurpPasta(){
         document.getElementById('pastas').innerHTML = pastas;
         document.getElementById('fenubucks').innerHTML = fenubucks;
         console.log("pasta slurped");
-        playPasta();
     } else {
         notEnoughFenu()
     };
@@ -1019,7 +1010,6 @@ function exchangeFenu(){
             fenubucks = fenubucks - 1000
             gfenubucks = gfenubucks + 1
             exchangeCount = exchangeCount + 1
-            playGoldenFenu()
         } else {
             notEnoughFenu()
         }

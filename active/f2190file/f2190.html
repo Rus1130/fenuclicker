@@ -51,10 +51,6 @@
             <span id="settingsSaveLoadWipePopupValue">true</span>
             <br>
             <br>
-            <input type="button" id="settingsSFX" value="Sound Effects" onclick="settingsSFX()">
-            <span id="settingsSFXValue">true</span>
-            <br>
-            <br>
             <input type="button" value="Show Compatible Browsers" onclick="compatibleBroswers()">
         </div>
         <div class="achievements">
@@ -88,16 +84,6 @@
             <br div class="hiddenAchievements" id="br12">
             <span id="achievementGoldenFenubucks7"div class="hiddenAchievements">Mining Embracer (Gain 300000 Golden Fenubucks)</span>
             <br div class="hiddenAchievements" id="br13">
-            <!--exchange-->
-            <span id="achievementExchange1" div class="hiddenAchievements">Currency Noob (Exchange F$ for GF$ 1 time)</span>
-            <br div class="hiddenAchievements" id="br14">
-            <span id="achievementExchange2" div class="hiddenAchievements">Currency Normie (Exchange F$ for GF$ 10 times)</span>
-            <br div class="hiddenAchievements" id="br15">
-            <span id="achievementExchange3" div class="hiddenAchievements">Currency Stan (Exchange F$ for GF$ 100 times)</span>
-            <br div class="hiddenAchievements" id="br16">
-            <span id="achievementExchange4" div class="hiddenAchievements">Currency Fan (Exchange F$ for GF$ 1000 times)</span>
-            <br div class="hiddenAchievements" id="br17">
-            <span id="achievementExchange5" div class="hiddenAchievements">Currency Enjoyer (Exchange F$ for GF$ 10000 times)</span>
             <!--hidden achievements-->
             <br div class="hiddenAchievements" id="hidbr1">
             <span id="achievementHidden1" div class="hiddenAchievements">How did you unhide that?</span>
@@ -109,7 +95,7 @@
         <button onclick="wipe()">Wipe Save</button>
         <h3>F$: <span id="fenubucks">0</span></h3>
         <h3>GF$: <span id="gfenubucks">0</span></h3>
-        <button onclick="photocopyFenubucks(photocopier); playFenu('fenu.mp3')"><b>Photocopy Fenubucks</b></button><button onclick="betterPhotocopier()" hidden=true id="betterPhotocopierId">Get better fenu photo</button>
+        <button onclick="photocopyFenubucks(photocopier); playFenu('fenu.mp3')"><b>Photocopy Fenubucks</b></button><button onclick="betterPhotocopier()" hidden="true" id="betterPhotocopierId">Get better fenu photo</button>
         <br>
         <br>
         Stiudent Cost: <span id="stiudentCost">10</span>
@@ -153,7 +139,7 @@
         <br>
         <br>
         <hr>
-        <input type="button" button id='unlockGoldenFenubucks' value="Unlock Golden Fenubucks (50000 F$)" onclick="unlockGoldenFenubucks()"></button>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="exchangeFenu()">Exchange (1000F$ = 1GF$)</button><span id="exchangeCount" hidden=true>0</span>
+        <input type="button" button id='unlockGoldenFenubucks' value="Unlock Golden Fenubucks (50000 F$)" onclick="unlockGoldenFenubucks()"></button>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="exchangeFenu()">Exchange (1000F$ = 1GF$)</button>
         <br>
         <br>
         Cibo Mine Cost: <span id="ciboCost">100000</span>
@@ -259,7 +245,7 @@ function playFenu(url) {
 
 var settingsNoFenuPopupValue = true;
 var settingsSaveLoadWipePopupValue = true;
-var settingsSFXValue = true;
+var settingsSFXValue = false;
 
 
 function settingsNoFenuPopup(){
@@ -362,11 +348,6 @@ function save() {
     localStorage.setItem('achievementGoldenFenubucks5Status', JSON.stringify(achievementGoldenFenubucks5Status));
     localStorage.setItem('achievementGoldenFenubucks6Status', JSON.stringify(achievementGoldenFenubucks6Status));
     localStorage.setItem('achievementGoldenFenubucks7Status', JSON.stringify(achievementGoldenFenubucks7Status));
-
-    //exchange =========
-
-    localStorage.setItem('achievementExchange1Status', JSON.stringify(achievementExchange1Status));
-
 
     //hidden achievements ===========
 
@@ -505,11 +486,6 @@ function load() {
     achievementGoldenFenubucks7Status = JSON.parse(window.localStorage.getItem('achievementGoldenFenubucks7Status'));
     document.getElementById('achievementGoldenFenubucks7Status').innerHTML = achievementGoldenFenubucks7Status;
 
-    //exchange achievements =======================================================
-
-    achievementExchange1Status = JSON.parse(window.localStorage.getItem('achievementExchange1Status'));
-    document.getElementById('achievementExchange1Status').innerHTML = achievementExchange1Status;
-
     //hidden achievements =========================================================
 
     achievementHidden1Status = JSON.parse(window.localStorage.getItem('achievementHidden1Status'));
@@ -589,7 +565,7 @@ function betterPhotocopier(){
 }
 
 function compatibleBroswers(){
-    window.alert("Compatible Browsers:\nChrome\nOpera GX (probably)\nEdge")
+    window.alert("Compatible Browsers:\nChrome\nEdge")
 }
 
 window.setInterval(function cyclicalCheck(){
@@ -619,12 +595,6 @@ var achievementGoldenFenubucks5Status = false;
 var achievementGoldenFenubucks6Status = false;
 var achievementGoldenFenubucks7Status = false;
 
-var achievementExchange1Status = false;
-var achievementExchange2Status = false;
-var achievementExchange3Status = false;
-var achievementExchange4Status = false;
-var achievementExchange5Status = false;
-
 var achievementHidden1Status = false;
 
 function checkAchievements(){
@@ -644,12 +614,6 @@ function checkAchievements(){
     achievementGoldenFenubucks6()
     achievementGoldenFenubucks7()
 
-    achievementExchange1()
-    achievementExchange2()
-    achievementExchange3()
-    achievementExchange4()
-    achievementExchange5()
-
     achievementHidden1()
 }
 
@@ -665,7 +629,6 @@ function achievementFenubucks1(){
     }
 }
 
-
 function achievementFenubucks2(){
     if(fenubucks >= 1500 && achievementFenubucks2Status == false){
         document.getElementById("achievementFenubucks2").removeAttribute("class")
@@ -677,7 +640,6 @@ function achievementFenubucks2(){
         document.getElementById("br1").removeAttribute("class")
     }
 }
-
 
 function achievementFenubucks3(){
     if(fenubucks >= 10000 && achievementFenubucks3Status == false){
@@ -691,7 +653,6 @@ function achievementFenubucks3(){
     }
 }
 
-
 function achievementFenubucks4(){
     if(fenubucks >= 50000 && achievementFenubucks4Status == false){
         document.getElementById("achievementFenubucks4").removeAttribute("class")
@@ -704,7 +665,6 @@ function achievementFenubucks4(){
     }
 }
 
-
 function achievementFenubucks5(){
     if(fenubucks >= 100000 && achievementFenubucks5Status == false){
         document.getElementById("achievementFenubucks5").removeAttribute("class")
@@ -716,7 +676,6 @@ function achievementFenubucks5(){
         document.getElementById("br4").removeAttribute("class")
     }
 }
-
 
 function achievementFenubucks6(){
     if(fenubucks >= 300000 && achievementFenubucks6Status == false){
@@ -744,7 +703,6 @@ function achievementGoldenFenubucks1(){
         document.getElementById("br6").removeAttribute("class")
     }
 }
-
 
 function achievementGoldenFenubucks2(){
     if(gfenubucks >= 100 && achievementGoldenFenubucks2Status == false){
@@ -783,7 +741,6 @@ function achievementGoldenFenubucks4(){
     }
 }
 
-
 function achievementGoldenFenubucks5(){
     if(gfenubucks >= 50000 && achievementGoldenFenubucks5Status == false){
         document.getElementById("achievementGoldenFenubucks5").removeAttribute("class")
@@ -795,7 +752,6 @@ function achievementGoldenFenubucks5(){
         document.getElementById("br10").removeAttribute("class")
     }
 }
-
 
 function achievementGoldenFenubucks6(){
     if(gfenubucks >= 100000 && achievementGoldenFenubucks6Status == false){
@@ -809,7 +765,6 @@ function achievementGoldenFenubucks6(){
     }
 }
 
-
 function achievementGoldenFenubucks7(){
     if(gfenubucks >= 300000 && achievementGoldenFenubucks7Status == false){
         document.getElementById("achievementGoldenFenubucks7").removeAttribute("class")
@@ -819,68 +774,6 @@ function achievementGoldenFenubucks7(){
     if(achievementGoldenFenubucks7Status == true){
         document.getElementById("achievementGoldenFenubucks7").removeAttribute("class")
         document.getElementById("br12").removeAttribute("class")   
-    }
-}
-
-// exchange ===================================================================
-
-function achievementExchange1(){
-    if(exchangeCount >= 1 && achievementExchange1Status == false){
-        document.getElementById("achievementExchange1").removeAttribute("class")
-        document.getElementById("br13").removeAttribute("class")
-        achievementExchange1Status = !achievementExchange1Status
-    }
-    if(achievementExchange1Status == true){
-        document.getElementById("achievementExchange1").removeAttribute("class")
-        document.getElementById("br13").removeAttribute("class")
-    }
-}
-
-function achievementExchange2(){
-    if(exchangeCount >= 10 && achievementExchange2Status == false){
-        document.getElementById("achievementExchange2").removeAttribute("class")
-        document.getElementById("br14").removeAttribute("class")
-        achievementExchange2Status = !achievementExchange2Status
-    }
-    if(achievementExchange2Status == true){
-        document.getElementById("achievementExchange2").removeAttribute("class")
-        document.getElementById("br14").removeAttribute("class")
-    }
-}
-
-function achievementExchange3(){
-    if(exchangeCount >= 100 && achievementExchange3Status == false){
-        document.getElementById("achievementExchange3").removeAttribute("class")
-        document.getElementById("br15").removeAttribute("class")
-        achievementExchange3Status = !achievementExchange3Status
-    }
-    if(achievementExchange3Status == true){
-        document.getElementById("achievementExchange3").removeAttribute("class")
-        document.getElementById("br15").removeAttribute("class")
-    }
-}
-
-function achievementExchange4(){
-    if(exchangeCount >= 1000 && achievementExchange4Status == false){
-        document.getElementById("achievementExchange4").removeAttribute("class")
-        document.getElementById("br16").removeAttribute("class")
-        achievementExchange4Status = !achievementExchange4Status
-    }
-    if(achievementExchange4Status == true){
-        document.getElementById("achievementExchange4").removeAttribute("class")
-        document.getElementById("br16").removeAttribute("class")
-    }
-}
-
-function achievementExchange5(){
-    if(exchangeCount >= 10000 && achievementExchange5Status == false){
-        document.getElementById("achievementExchange5").removeAttribute("class")
-        document.getElementById("br17").removeAttribute("class")
-        achievementExchange5Status = !achievementExchange5Status
-    }
-    if(achievementExchange5Status == true){
-        document.getElementById("achievementExchange5").removeAttribute("class")
-        document.getElementById("br17").removeAttribute("class")
     }
 }
 
@@ -1048,8 +941,6 @@ function unlockGoldenFenubucks(){
     }
 }
 
-var exchangeCount = 0
-
 function exchangeFenu(){
     if(gfenubucks == 0){
         unlockGolden();
@@ -1057,7 +948,6 @@ function exchangeFenu(){
         if(fenubucks >= 1000){
             fenubucks = fenubucks - 1000
             gfenubucks = gfenubucks + 1
-            exchangeCount = exchangeCount + 1
             playGoldenFenu()
         } else {
             notEnoughFenu()
@@ -1081,6 +971,7 @@ function mineCibo(){
             document.getElementById('cibos').innerHTML = cibos;
             document.getElementById('gfenubucks').innerHTML = gfenubucks;
             console.log("cibo mined");
+            playCibo()
         } else {
             notEnoughFenu()
         };
