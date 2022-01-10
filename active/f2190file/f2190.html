@@ -49,6 +49,8 @@
             <br>
             <input type="button" id="settingsSaveLoadWipePopup" value="Save/Load/Wipe Popups" onclick="settingsSaveLoadWipePopup()">
             <span id="settingsSaveLoadWipePopupValue">true</span>
+            <br>
+            <br>
             <input type="button" value="Show Compatible Browsers" onclick="compatibleBroswers()">
         </div>
         <div class="achievements">
@@ -969,6 +971,7 @@ function mineCibo(){
             document.getElementById('cibos').innerHTML = cibos;
             document.getElementById('gfenubucks').innerHTML = gfenubucks;
             console.log("cibo mined");
+            playCibo()
         } else {
             notEnoughFenu()
         };
